@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask.ext.triangle import Triangle
 
 
@@ -7,10 +7,13 @@ Triangle(app)
 
 
 @app.route('/')
-@app.route('/<default>')
-def index(default=''):
-    return render_template('index.html', default=default)
+def index():
+    return render_template('index.html')
 
+@app.route('/data')
+def data():
+    data = {'value_1':'foo','value_2':'bar','value_3':'spam'}
+    return jsonify(**data)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5016)
