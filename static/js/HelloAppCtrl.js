@@ -9,7 +9,7 @@ app.controller("HelloAppCtrl", function($scope,$http) {
     };
 
     $scope.get_data = function(){
-      $http.get("http://127.0.0.1:5016/data")
+      $http.get("http://127.0.0.1:5000/data")
         .success(function(response) {
           $scope.value_1 = response.value_1;
           $scope.value_2 = response.value_2;

@@ -2,25 +2,40 @@
 <html lang="en" ng-app="HelloApp">
   <head>
     <meta charset="utf-8" http-equiv="cache-control" content="no-cache">
+    <script src="/static/js/d3.min.js"></script>
+  	<script src="/static/js/jquery-2.1.4.min.js"></script>
+  	<script src="/static/js/plotly-basic.js"></script>
     <script src="/static/js/angular.min.js"></script>
     <title>Flask-Triangle - Tutorial</title>
   </head>
-  <body ng-controller="HelloAppCtrl">
-    <label>Name:</label>
-    <input type="text" ng-model="user_name" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{user_name|angular}}!</h1>
-    <button ng-click="clear()">Clear</button>
-    <br><br>
-    <h3>Data<h3>
-    <button ng-click="get_data()">Fill</button>
-    <button ng-click="clear_data()">Empty</button>
-    <ul>
-      <li>{{value_1|angular}}</li>
-      <li>{{value_2|angular}}</li>
-      <li>{{value_3|angular}}</li>
-    </ul>
+  <body>
+    <div ng-controller="HelloAppCtrl">
+      <h1>Hello {{user_name|angular}}!</h1>
+      <hr>
+      <label>Name:</label>
+      <input type="text" ng-model="user_name" placeholder="Enter a name here">
+      <button ng-click="clear()">Clear</button>
+      <br>
+      <br>
+      <h2>Data<h2>
+      <hr>
+      <button ng-click="get_data()">Fill</button>
+      <button ng-click="clear_data()">Empty</button>
+      <ul>
+        <li>{{value_1|angular}}</li>
+        <li>{{value_2|angular}}</li>
+        <li>{{value_3|angular}}</li>
+      </ul>
+      <br>
+    </div>
+    <div ng-controller="PlotCtrl">
+      <h2>Plot</h2>
+      <hr>
+      <button ng-click="get_data()">Add Data</button>
+      <div id="tester" style="width:600px;height:250px;"></div>
+    </div>
     <script src="static/js/HelloApp.js"></script>
+    <script src="static/js/PlotCtrl.js"></script>
     <script src="static/js/HelloAppCtrl.js"></script>
   </body>
 </html>
