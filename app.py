@@ -10,11 +10,13 @@ Triangle(app)
 def index():
     return render_template('index.html')
 
+# Return a json file of data for the unordered list.
 @app.route('/data')
 def data():
     data = {'value_1':'foo','value_2':'bar','value_3':'spam'}
     return jsonify(**data)
 
+# Return a json file of x and y data for a series plot.
 @app.route('/plot_data')
 def plot_data():
     data = {'x_vals':range(1,6),
